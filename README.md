@@ -71,7 +71,7 @@ A diferencia de otros modelos, GitFlow se basa en el uso de ramas con ciclos de 
 En esta sección se describe la ejecución técnica de la metodología GitFlow aplicada a la construcción de este informe.
 
 
- #### 2.3.1 Configuración de la Línea Base (Baselines)
+ #### 2.3.1 **Configuración de la Línea Base (Baselines)**
 Antes de comenzar, es imperativo establecer las ramas de vida larga. En SCM, esto garantiza que la rama de producción (main) sea inmutable mientras se trabaja en la rama de integración (develop).
 
 ```bash
@@ -86,7 +86,7 @@ A partir de este punto, el repositorio cuenta con dos ramas de vida larga:
 
 
 
-#### 2.3.2 Ciclo de Vida de una Funcionalidad (Feature Branches)
+#### 2.3.2 **Ciclo de Vida de una Funcionalidad (Feature Branches)**
 Para cumplir con el desarrollo colaborativo, cada integrante trabajó en una rama aislada de tipo feature. Tomaremos como ejemplo la creación de la sección de "Introducción" a cargo de Valentina.
 
 
@@ -113,7 +113,69 @@ git checkout -b feature/introduccion develop
 git add README.md git commit -m "Valentina: Redacción de la base teórica de SCM"
 ```
 
-4.**Publicar la rama para revisión:** Se sube la rama al servidor remoto para que esté disponible en GitHub.
+4. **Publicar la rama para revisión:** Se sube la rama al servidor remoto para que esté disponible en GitHub.
 ```bash
 git push origin feature/introduccion
 ```
+
+
+5. **Solicitud de Integración (Pull Request)** A través de la interfaz de GitHub, se solicita la unión de feature/introduccion hacia develop. En este punto, el Supervisor  realiza la revisión del contenido.
+
+6. **Aceptación y Limpieza (Merge & Delete)** Una vez aprobado el cambio, se realiza el merge en la plataforma. Para mantener la higiene del repositorio, se procede a borrar la rama que ya no es necesaria:
+
+```bash
+# Volver a develop y descargar el trabajo ya integrado
+git checkout develop
+git pull origin develop
+
+# Borrar la rama localmente
+git branch -d feature/introduccion
+
+# Borrar la rama en el servidor remoto
+git push origin --delete feature/introduccion
+```
+
+#### 2.3.3 **Preparación de la Entrega (Release Branch)**
+
+Una vez que las funcionalidades de los creadores de contenido fueron integradas en develop, el supervisor procedió a la fase de estabilización. En esta etapa no se agrega contenido nuevo; solo se realizan ajustes de formato, correcciones ortográficas y validación de enlaces.
+
+ **Finalizacion del producto**: 
+ ```bash
+ # 1. Crear rama de lanzamiento para pulir el documento
+git checkout -b release/v1.0 develop
+
+# 2. Integrar en producción (main) tras la revisión final
+git checkout main
+git merge release/v1.0
+
+# 3. Importante: Integrar los ajustes de vuelta a develop 
+# para que la rama de desarrollo también esté actualizada
+git checkout develop
+git merge release/v1.0
+
+# 4. Etiquetado de versión oficial
+git checkout main
+git tag -a v1.0 -m "Entrega Final - Ingeniería de Software II"
+
+```
+
+#### 2.3.4 **Gestión de Emergencias (Hotfix Branch)** 
+En caso de detectar un error crítico en la versión ya entregada (ej. un link roto o error en la carátula que afecte la legibilidad), se utiliza una rama de corrección rápida para evitar esperar al próximo ciclo de desarrollo.
+
+ ```bash
+# 1. Crear hotfix directamente desde la rama de producción
+git checkout -b hotfix/error-caratula main
+
+# 2. (Se corrige el error en el archivo y se realiza el commit)
+git add README.md
+git commit -m "Sergio: Corrección de error crítico en carátula"
+
+# 3. Finalizar hotfix: fusionar en main y en develop
+git checkout main
+git merge hotfix/error-caratula
+git checkout develop
+git merge hotfix/error-caratula
+
+# 4. Eliminar rama de emergencia
+git branch -d hotfix/error-caratula
+ ```
