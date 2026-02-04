@@ -52,3 +52,18 @@ En GitFlow, las ramas se dividen en dos categorías principales:
 - **Trazabilidad:** Es la capacidad de rastrear cada cambio hasta su origen (quién lo hizo, cuándo y por qué). En este informe, esto se evidencia en el historial de commits.
 
 - **Integridad del Sistema:** Asegurada mediante el uso de Pull Requests, donde el contenido es supervisado antes de ser fusionado a la línea base.
+
+
+### 2.2 Dinámica de Trabajo en GitFlow
+A diferencia de otros modelos, GitFlow se basa en el uso de ramas con ciclos de vida definidos. Los desarrolladores trabajan en ramas de función aisladas y solo fusionan su código cuando la funcionalidad está completa y verificada. Esto garantiza que la rama principal siempre contenga código estable.
+
+ #### Flujo General de Trabajo:
+1. Se inicializa una rama develop desde main.
+2. Se desprenden ramas feature desde develop para cada nueva tarea.
+3. Al finalizar una feature, esta se fusiona nuevamente en develop.
+4. Se crea una rama release desde develop para preparar el lanzamiento.
+5. La release se fusiona en main (producción) y en develop.
+6. Ante errores críticos en main, se utilizan ramas hotfix para reparaciones rápidas.
+
+
+### 2.3 Implementación Práctica del Flujo de Trabajo
