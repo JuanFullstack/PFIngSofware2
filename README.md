@@ -67,3 +67,53 @@ A diferencia de otros modelos, GitFlow se basa en el uso de ramas con ciclos de 
 
 
 ### 2.3 Implementación Práctica del Flujo de Trabajo
+
+En esta sección se describe la ejecución técnica de la metodología GitFlow aplicada a la construcción de este informe.
+
+
+ #### 2.3.1 Configuración de la Línea Base (Baselines)
+Antes de comenzar, es imperativo establecer las ramas de vida larga. En SCM, esto garantiza que la rama de producción (main) sea inmutable mientras se trabaja en la rama de integración (develop).
+
+```bash
+ # Crear e inicializar la rama de desarrollo
+git checkout -b develop main
+git push origin develop # Sube la rama al servidor
+```
+
+A partir de este punto, el repositorio cuenta con dos ramas de vida larga:
+- `main`: rama estable de referencia (vacia/inicial).
+- `develop`: rama de integración donde se unifican los aportes del equipo.
+
+
+
+#### 2.3.2 Ciclo de Vida de una Funcionalidad (Feature Branches)
+Para cumplir con el desarrollo colaborativo, cada integrante trabajó en una rama aislada de tipo feature. Tomaremos como ejemplo la creación de la sección de "Introducción" a cargo de Valentina.
+
+
+**Preparación**: Antes de crear una nueva rama de funcionalidad, es necesario situarse sobre la rama develop, ya que según el modelo GitFlow, todas las ramas feature deben originarse desde allí. Para corroborar en qué rama estamos posicionados, ejecutamos:
+
+```bash
+git branch
+``` 
+
+1. **Sincronizar el repositorio local**: Antes de comenzar, es fundamental partir de la versión más reciente de la rama de integración para evitar conflictos de mezcla (merge conflicts) a futuro
+```bash
+git checkout develop
+git pull origin develop
+```
+
+2. **Crear una rama de funcionalidad aislada:** Se crea una rama transitoria para no afectar la estabilidad de develop mientras se edita el contenido.
+```bash
+# El modificador -b crea la rama y nos posiciona en ella automáticamente
+git checkout -b feature/introduccion develop
+```
+
+3. **Registrar avances mediante commits atómicos:** Se guardan los cambios de forma incremental con mensajes descriptivos.
+```bash
+git add README.md git commit -m "Valentina: Redacción de la base teórica de SCM"
+```
+
+4.**Publicar la rama para revisión:** Se sube la rama al servidor remoto para que esté disponible en GitHub.
+```bash
+git push origin feature/introduccion
+```
