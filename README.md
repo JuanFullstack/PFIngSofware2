@@ -71,7 +71,7 @@ A diferencia de otros modelos, GitFlow se basa en el uso de ramas con ciclos de 
 En esta sección se describe la ejecución técnica de la metodología GitFlow aplicada a la construcción de este informe.
 
 
- #### 2.3.1 **Configuración de la Línea Base (Baselines)**
+ #### 2.3.1 Configuración de la Línea Base (Baselines)
 Antes de comenzar, es imperativo establecer las ramas de vida larga. En SCM, esto garantiza que la rama de producción (main) sea inmutable mientras se trabaja en la rama de integración (develop).
 
 ```bash
@@ -86,7 +86,7 @@ A partir de este punto, el repositorio cuenta con dos ramas de vida larga:
 
 
 
-#### 2.3.2 **Ciclo de Vida de una Funcionalidad (Feature Branches)**
+#### 2.3.2 Ciclo de Vida de una Funcionalidad (Feature Branches)
 Para cumplir con el desarrollo colaborativo, cada integrante trabajó en una rama aislada de tipo feature. Tomaremos como ejemplo la creación de la sección de "Introducción" a cargo de Valentina.
 
 
@@ -135,7 +135,7 @@ git branch -d feature/introduccion
 git push origin --delete feature/introduccion
 ```
 
-#### 2.3.3 **Preparación de la Entrega (Release Branch)**
+#### 2.3.3 Preparación de la Entrega (Release Branch)
 
 Una vez que las funcionalidades de los creadores de contenido fueron integradas en develop, el supervisor procedió a la fase de estabilización. En esta etapa no se agrega contenido nuevo; solo se realizan ajustes de formato, correcciones ortográficas y validación de enlaces.
 
@@ -159,7 +159,7 @@ git tag -a v1.0 -m "Entrega Final - Ingeniería de Software II"
 
 ```
 
-#### 2.3.4 **Gestión de Emergencias (Hotfix Branch)** 
+#### 2.3.4 Gestión de Emergencias (Hotfix Branch)
 En caso de detectar un error crítico en la versión ya entregada (ej. un link roto o error en la carátula que afecte la legibilidad), se utiliza una rama de corrección rápida para evitar esperar al próximo ciclo de desarrollo.
 
  ```bash
@@ -179,3 +179,18 @@ git merge hotfix/error-caratula
 # 4. Eliminar rama de emergencia
 git branch -d hotfix/error-caratula
  ```
+
+
+### 2.4 Mejores Prácticas y Recomendaciones de Ingeniería de Software
+
+Para asegurar un desarrollo de alta calidad y mantener la integridad del proyecto, el equipo aplicó las siguientes recomendaciones de la disciplina SCM:
+
+- **Principio de Menor Privilegio en Ramas:** Está estrictamente prohibido realizar commits directos en las ramas main y develop. Todo cambio debe nacer en una rama de apoyo y pasar por un proceso de revisión.
+
+- **Commits Atómicos:** Se realizaron registros pequeños y frecuentes. Esto facilita la identificación de errores y permite revertir cambios específicos sin afectar el resto del trabajo.
+
+- **Higiene del Repositorio:** Una vez que una feature es fusionada, la rama se elimina tanto local como remotamente para evitar la "deuda técnica" visual en el grafo del proyecto.
+
+- **Uso de Pull Requests (PR):** La integración siempre debe ser solicitada mediante un PR. Esto fomenta la Revisión por Pares (Peer Review), mejorando la calidad técnica y asegurando que al menos dos integrantes conozcan cada cambio realizado.
+
+- **Sincronización Continua:** La ejecución constante de git pull antes de iniciar cualquier tarea garantiza que el desarrollador trabaje siempre sobre la última línea base común.
