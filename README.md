@@ -17,6 +17,9 @@ La Gestión de la Configuración de Software (SCM) es una disciplina transversal
 
 En el contexto actual, donde los ciclos de entrega son cada vez más cortos, el uso de Sistemas de Control de Versiones (VCS) como Git se ha consolidado como el estándar de la industria para gestionar esta mutabilidad. Para organizar el trabajo en equipo, referentes del área como Vincent Driessen han formalizado modelos de ramificación (branching) profesionales. En este trabajo, aplicamos específicamente el modelo **GitFlow**, el cual permite gestionar la complejidad del desarrollo paralelo y los lanzamientos de versiones mediante una estructura de ramas que asegura la trazabilidad total del proyecto.
 
+
+---
+
 ## 2. Desarrollo práctico
 
 En esta sección se describe la metodología aplicada para la construcción colaborativa de este informe, utilizando Git como tecnología de control de versiones distribuido. El objetivo es proporcionar una guía reproducible del flujo de trabajo GitFlow.
@@ -45,6 +48,11 @@ En GitFlow, las ramas se dividen en dos categorías principales:
    - **Release Branches:** Se utilizan para preparar una nueva versión oficial (limpieza de errores, tildes, formato).
 
    - **Hotfix Branches:** Ramas de emergencia que nacen de main para corregir errores críticos sin interrumpir el trabajo en develop.
+
+   ![Diagrama Gitflow ](img/diagrama-gitflow-commit-valentina.png.png)
+
+
+*Este diagrama técnico detalla la arquitectura del modelo GitFlow, visualizando la jerarquía y el flujo de trabajo entre las ramas permanentes y las transitorias. En la imagen se observa cómo la rama Main actúa como la línea base de producción estable, mientras que la rama Develop centraliza la integración de las funcionalidades desarrolladas en las ramas Feature. Además, el esquema ilustra el uso de ramas de Release para la preparación de lanzamientos y ramas de Hotfix para correcciones de emergencia, garantizando que el desarrollo paralelo no comprometa la integridad del sistema*
 
 #### 2.1.3 Conceptos de Control de Versiones
 - **Repositorio Distribuido:** A diferencia de los sistemas centralizados, cada integrante posee una copia completa del historial (gracias a Git), lo que permite trabajar sin conexión y con mayor seguridad.
@@ -181,7 +189,7 @@ git branch -d hotfix/error-caratula
  ```
 
 
-### 2.4 Mejores Prácticas y Recomendaciones de Ingeniería de Software
+### 2.4 Mejores prácticas y recomendaciones 
 
 Para asegurar un desarrollo de alta calidad y mantener la integridad del proyecto, el equipo aplicó las siguientes recomendaciones de la disciplina SCM:
 
@@ -194,3 +202,5 @@ Para asegurar un desarrollo de alta calidad y mantener la integridad del proyect
 - **Uso de Pull Requests (PR):** La integración siempre debe ser solicitada mediante un PR. Esto fomenta la Revisión por Pares (Peer Review), mejorando la calidad técnica y asegurando que al menos dos integrantes conozcan cada cambio realizado.
 
 - **Sincronización Continua:** La ejecución constante de git pull antes de iniciar cualquier tarea garantiza que el desarrollador trabaje siempre sobre la última línea base común.
+
+---
