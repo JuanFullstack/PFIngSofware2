@@ -204,6 +204,39 @@ Para asegurar un desarrollo de alta calidad y mantener la integridad del proyect
 - **Sincronización Continua:** La ejecución constante de git pull antes de iniciar cualquier tarea garantiza que el desarrollador trabaje siempre sobre la última línea base común.
 
 ---
+
 # 3. Análisis Comparativo: GitFlow vs. GitHub Flow (Trunk-Based)
 
 Para la fundamentación de este proyecto, hemos contrastado el modelo seleccionado (**GitFlow**) con la estrategia moderna de **GitHub Flow**, la cual es una implementación práctica de la metodología conocida teóricamente como *Trunk-Based Development* (TBD). [cite_start]Basándonos en la bibliografía analizada[cite: 168], presentamos las diferencias clave y la justificación de nuestra elección.
+
+## 3.1 GitFlow (Modelo de Releases)
+Es el modelo tradicional publicado por Vincent Driessen. [cite_start]Se caracteriza por un uso estricto de ramas con roles específicos y ciclos de vida largos[cite: 31, 73].
+* [cite_start]**Enfoque:** Orientado a proyectos con **lanzamientos programados** (Software empaquetado) donde la estabilidad es prioritaria sobre la velocidad de despliegue[cite: 35, 128].
+* [cite_start]**Estructura:** Separa estrictamente el código en preparación (`develop`) del código en producción (`main`), utilizando ramas auxiliares para funcionalidades (`features`), lanzamientos (`releases`) y correcciones rápidas (`hotfixes`) [cite: 34-57].
+* [cite_start]**Ventaja:** Permite un desarrollo paralelo seguro y un control estricto sobre lo que llega a producción, minimizando errores en versiones finales[cite: 128, 132].
+
+## 3.2 GitHub Flow / Trunk-Based Development (Modelo de CI/CD)
+[cite_start]Es un modelo ágil donde los desarrolladores colaboran en una única rama central (el "tronco" o `main`), resistiendo la creación de ramas de larga duración[cite: 168, 171].
+* **Enfoque:** Orientado a la **Entrega Continua (Continuous Delivery)**. [cite_start]Se priorizan los cambios pequeños e incrementales que se integran y despliegan frecuentemente[cite: 172, 182].
+* **Estructura:** Simplificada. Solo existe una rama principal (`main`) que siempre debe ser desplegable. [cite_start]Las ramas de funcionalidad son de vida muy corta (*short-lived branches*) y se borran tras el merge[cite: 171, 177].
+* [cite_start]**Ventaja:** Reduce la complejidad de gestión de ramas (el "infierno de fusiones") y acelera el *Time-to-Market*, siendo ideal para equipos DevOps y aplicaciones web SaaS[cite: 168, 296].
+
+## 3.3 Cuadro Comparativo Técnico
+[cite_start]A continuación, presentamos una comparativa directa basada en los atributos de cada estrategia [cite: 293-296]:
+
+| Característica | GitFlow (Seleccionado) | GitHub Flow (TBD) |
+| :--- | :--- | :--- |
+| **Contexto Ideal** | Proyectos con ciclos de desarrollo extensos y versiones definidas. | Proyectos DevOps/Ágiles con despliegue continuo. |
+| **Estructura de Ramas** | **Compleja:** `main`, `develop`, `feature/*`, `release/*`, `hotfix/*`. | **Simple:** Única rama `main` y ramas temporales cortas. |
+| **Frecuencia de Integración** | Media/Baja. Se integra al finalizar funcionalidades completas. | Alta. Múltiples integraciones al día (Commits pequeños). |
+| **Gestión de Errores** | Ramas específicas (`hotfix`) para no detener el desarrollo en `develop`. | Corrección directa sobre el tronco (`fix forward`) o reversión rápida. |
+| **Riesgo de Conflictos** | Alto en integraciones tardías ("Merge Hell"). | Bajo, debido a integraciones frecuentes y pequeñas. |
+
+## 3.4 Conclusión (Parcial)
+Para el presente Trabajo Práctico de Ingeniería de Software II, hemos seleccionado **GitFlow** por las siguientes razones:
+1.  [cite_start]**Simulación de Roles:** Permite asignar roles claros (Release Manager, Developers) y gestionar permisos diferenciados, algo educativo en un entorno académico[cite: 294].
+2.  [cite_start]**Versiones Definidas:** Al ser una entrega académica con una fecha fija, el modelo de "Release" de GitFlow se adapta mejor que el despliegue continuo de GitHub Flow[cite: 322].
+3.  [cite_start]**Seguridad:** La existencia de la rama `develop` actúa como un "colchón" de seguridad antes de tocar la rama `main`, protegiendo la entrega final de errores en desarrollo[cite: 38].
+
+---
+
