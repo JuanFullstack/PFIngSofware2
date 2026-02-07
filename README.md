@@ -231,6 +231,15 @@ Es un modelo ágil donde los desarrolladores colaboran en una única rama centra
 * **Estructura:** Simplificada. Solo existe una rama principal (`main`) que siempre debe ser desplegable. Las ramas de funcionalidad son de vida muy corta (*short-lived branches*) y se borran tras el merge.
 * **Ventaja:** Reduce la complejidad de gestión de ramas (el "infierno de fusiones") y acelera el *Time-to-Market*, siendo ideal para equipos DevOps y aplicaciones web SaaS.
 
+**Ventajas:**
+* **Agilidad y Velocidad:** Integra cambios pequeños frecuentemente, reduciendo el tiempo entre desarrollo y despliegue.
+* **Reducción de Conflictos:** Evita problemas graves de fusión al integrar código constantemente.
+* **Retroalimentación Rápida:** Facilita la detección de errores casi al instante mediante pruebas automatizadas.
+
+**Desventajas:**
+* **Riesgo de Inestabilidad:** Un error en `main` puede afectar a todo el equipo inmediatamente.
+* **Dependencia de Automatización:** Requiere infraestructura de pruebas automáticas sólida para ser seguro.
+
 ## 3.3 Cuadro Comparativo Técnico
 A continuación, presentamos una comparativa directa basada en los atributos de cada estrategia :
 
