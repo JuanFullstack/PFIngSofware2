@@ -207,11 +207,11 @@ Para asegurar un desarrollo de alta calidad y mantener la integridad del proyect
 
 # 3. Análisis Comparativo: GitFlow vs. GitHub Flow (Trunk-Based)
 
-Para la fundamentación de este proyecto, hemos contrastado el modelo seleccionado (**GitFlow**) con la estrategia moderna de **GitHub Flow**, la cual es una implementación práctica de la metodología conocida teóricamente como *Trunk-Based Development* (TBD). Basándonos en la bibliografía analizada[cite: 168], presentamos las diferencias clave y la justificación de nuestra elección.
+Para la fundamentación de este proyecto, hemos contrastado el modelo seleccionado (**GitFlow**) con la estrategia moderna de **GitHub Flow**, la cual es una implementación práctica de la metodología conocida teóricamente como *Trunk-Based Development* (TBD). Basándonos en la bibliografía analizada, presentamos las diferencias clave y la justificación de nuestra elección.
 
 ## 3.1 GitFlow (Modelo de Releases)
-Es el modelo tradicional publicado por Vincent Driessen. [cite_start]Se caracteriza por un uso estricto de ramas con roles específicos y ciclos de vida largos[cite: 31, 73].
-* **Enfoque:** Orientado a proyectos con **lanzamientos programados** (Software empaquetado) donde la estabilidad es prioritaria sobre la velocidad de despliegue[cite: 35, 128].
+Es el modelo tradicional publicado por Vincent Driessen. Se caracteriza por un uso estricto de ramas con roles específicos y ciclos de vida largos.
+* **Enfoque:** Orientado a proyectos con **lanzamientos programados** (Software empaquetado) donde la estabilidad es prioritaria sobre la velocidad de despliegue.
 * **Estructura:** Separa estrictamente el código en preparación (`develop`) del código en producción (`main`), utilizando ramas auxiliares para funcionalidades (`features`), lanzamientos (`releases`) y correcciones rápidas (`hotfixes`).
 * **Ventaja:** Permite un desarrollo paralelo seguro y un control estricto sobre lo que llega a producción, minimizando errores en versiones finales.
 
@@ -221,18 +221,18 @@ Es el modelo tradicional publicado por Vincent Driessen. [cite_start]Se caracter
 * **Orden y Estructura:** Define un flujo de trabajo estricto que minimiza errores humanos al tener reglas claras sobre dónde y cuándo integrar cambios.
 
 **Desventajas:**
-* **Complejidad de Gestión:** Introduce un número elevado de ramas y fusiones que requieren una administración rigurosa y disciplina por parte del equipo[cite: 147, 157].
-* **Retrasos en Entregas:** La necesidad de esperar a completar una `release` para desplegar puede ralentizar la entrega de valor, siendo menos apto para Integración Continua[cite: 162].
-* **Curva de Aprendizaje:** Puede resultar difícil de dominar para nuevos miembros debido a la rigidez del protocolo[cite: 159].
+* **Complejidad de Gestión:** Introduce un número elevado de ramas y fusiones que requieren una administración rigurosa y disciplina por parte del equipo.
+* **Retrasos en Entregas:** La necesidad de esperar a completar una `release` para desplegar puede ralentizar la entrega de valor, siendo menos apto para Integración Continua.
+* **Curva de Aprendizaje:** Puede resultar difícil de dominar para nuevos miembros debido a la rigidez del protocolo.
 
 ## 3.2 GitHub Flow / Trunk-Based Development (Modelo de CI/CD)
-Es un modelo ágil donde los desarrolladores colaboran en una única rama central (el "tronco" o `main`), resistiendo la creación de ramas de larga duración[cite: 168, 171].
-* **Enfoque:** Orientado a la **Entrega Continua (Continuous Delivery)**. Se priorizan los cambios pequeños e incrementales que se integran y despliegan frecuentemente[cite: 172, 182].
-* **Estructura:** Simplificada. Solo existe una rama principal (`main`) que siempre debe ser desplegable. Las ramas de funcionalidad son de vida muy corta (*short-lived branches*) y se borran tras el merge[cite: 171, 177].
-* **Ventaja:** Reduce la complejidad de gestión de ramas (el "infierno de fusiones") y acelera el *Time-to-Market*, siendo ideal para equipos DevOps y aplicaciones web SaaS[cite: 168, 296].
+Es un modelo ágil donde los desarrolladores colaboran en una única rama central (el "tronco" o `main`), resistiendo la creación de ramas de larga duración.
+* **Enfoque:** Orientado a la **Entrega Continua (Continuous Delivery)**. Se priorizan los cambios pequeños e incrementales que se integran y despliegan frecuentemente.
+* **Estructura:** Simplificada. Solo existe una rama principal (`main`) que siempre debe ser desplegable. Las ramas de funcionalidad son de vida muy corta (*short-lived branches*) y se borran tras el merge.
+* **Ventaja:** Reduce la complejidad de gestión de ramas (el "infierno de fusiones") y acelera el *Time-to-Market*, siendo ideal para equipos DevOps y aplicaciones web SaaS.
 
 ## 3.3 Cuadro Comparativo Técnico
-A continuación, presentamos una comparativa directa basada en los atributos de cada estrategia [cite: 293-296]:
+A continuación, presentamos una comparativa directa basada en los atributos de cada estrategia :
 
 | Característica | GitFlow (Seleccionado) | GitHub Flow (TBD) |
 | :--- | :--- | :--- |
@@ -244,9 +244,9 @@ A continuación, presentamos una comparativa directa basada en los atributos de 
 
 ## 3.4 Conclusión (Parcial)
 Para el presente Trabajo Práctico de Ingeniería de Software II, hemos seleccionado **GitFlow** por las siguientes razones:
-1.  [cite_start]**Simulación de Roles:** Permite asignar roles claros (Release Manager, Developers) y gestionar permisos diferenciados, algo educativo en un entorno académico[cite: 294].
-2.  [cite_start]**Versiones Definidas:** Al ser una entrega académica con una fecha fija, el modelo de "Release" de GitFlow se adapta mejor que el despliegue continuo de GitHub Flow[cite: 322].
-3.  [cite_start]**Seguridad:** La existencia de la rama `develop` actúa como un "colchón" de seguridad antes de tocar la rama `main`, protegiendo la entrega final de errores en desarrollo[cite: 38].
+1.  **Simulación de Roles:** Permite asignar roles claros (Release Manager, Developers) y gestionar permisos diferenciados, algo educativo en un entorno académico.
+2.  **Versiones Definidas:** Al ser una entrega académica con una fecha fija, el modelo de "Release" de GitFlow se adapta mejor que el despliegue continuo de GitHub Flow.
+3.  **Seguridad:** La existencia de la rama `develop` actúa como un "colchón" de seguridad antes de tocar la rama `main`, protegiendo la entrega final de errores en desarrollo.
 
 ---
 
