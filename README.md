@@ -236,6 +236,9 @@ En el Trunk-Based Development (TBD), la dinámica de trabajo cambia radicalmente
 * **Uso de Feature Flags:** A menudo se combina con *feature toggles* (interruptores), lo que permite desplegar código en producción pero mantener la funcionalidad "apagada" para el usuario final. Esto permite revertir cambios instantáneamente si se descubre algún error crítico sin necesidad de deshacer el despliegue.
 * **Ventaja:** Reduce la complejidad de gestión de ramas (el "infierno de fusiones") y acelera el *Time-to-Market*, siendo ideal para equipos DevOps y aplicaciones web SaaS.
 
+![Diagrama de Trunk-Based Development](img/trunk-based-diagram.png)
+*Figura 3.2: Esquema de ramas de vida corta en Trunk-Based Development.*
+
 **Ventajas:**
 * **Agilidad y Velocidad:** Integra cambios pequeños frecuentemente, reduciendo el tiempo entre desarrollo y despliegue.
 * **Reducción de Conflictos:** Al integrar cambios pequeños y frecuentes, se evitan las largas correcciones de errores y los problemas complejos que ocasiona la fusión de grandes ramas (*Merge Hell*).
