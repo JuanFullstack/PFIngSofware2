@@ -236,8 +236,6 @@ En el Trunk-Based Development (TBD), la dinámica de trabajo cambia radicalmente
 * **Reducción de Riesgos:** Al integrar cambios pequeños y frecuentes, se evitan las largas correcciones de errores y los problemas complejos que ocasiona la fusión de grandes ramas (*Merge Hell*).
 * **Uso de Feature Flags:** A menudo se combina con *feature toggles* (interruptores), lo que permite desplegar código en producción pero mantener la funcionalidad "apagada" para el usuario final. Esto permite revertir cambios instantáneamente si se descubre algún error crítico sin necesidad de deshacer el despliegue.
 
-* **Enfoque:** Orientado a la **Entrega Continua (Continuous Delivery)**. Se priorizan los cambios pequeños e incrementales que se integran y despliegan frecuentemente.
-* **Estructura:** Simplificada. Solo existe una rama principal (`main`) que siempre debe ser desplegable. Las ramas de funcionalidad son de vida muy corta (*short-lived branches*) y se borran tras el merge.
 * **Ventaja:** Reduce la complejidad de gestión de ramas (el "infierno de fusiones") y acelera el *Time-to-Market*, siendo ideal para equipos DevOps y aplicaciones web SaaS.
 
 **Ventajas:**
