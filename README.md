@@ -213,7 +213,6 @@ Para la fundamentación de este proyecto, hemos contrastado el modelo selecciona
 Es el modelo tradicional publicado por Vincent Driessen. Se caracteriza por un uso estricto de ramas con roles específicos y ciclos de vida largos.
 * **Enfoque:** Orientado a proyectos con **lanzamientos programados** (Software empaquetado) donde la estabilidad es prioritaria sobre la velocidad de despliegue.
 * **Estructura:** Separa estrictamente el código en preparación (`develop`) del código en producción (`main`), utilizando ramas auxiliares para funcionalidades (`features`), lanzamientos (`releases`) y correcciones rápidas (`hotfixes`).
-* **Ventaja:** Permite un desarrollo paralelo seguro y un control estricto sobre lo que llega a producción, minimizando errores en versiones finales.
 
 **Ventajas:**
 * **Desarrollo Paralelo Seguro:** Aísla el desarrollo de nuevas características (features) del código en producción, permitiendo que múltiples equipos trabajen simultáneamente sin interrupciones.
@@ -233,14 +232,13 @@ En el Trunk-Based Development (TBD), la dinámica de trabajo cambia radicalmente
 
 * **Centralización en el Tronco:** Los desarrolladores trabajan la mayor parte del tiempo directamente en la rama principal o en ramas de vida muy corta, evitando la creación de ramas de larga duración que se desvíen del código base.
 * **Enfoque en Entrega Continua (CD):** Las ramas son pequeñas y contienen solo una parte de la funcionalidad (*feature*) a implementar. Esto facilita enormemente el proceso de *merging*.
-* **Reducción de Riesgos:** Al integrar cambios pequeños y frecuentes, se evitan las largas correcciones de errores y los problemas complejos que ocasiona la fusión de grandes ramas (*Merge Hell*).
+* **Reducción de Riesgos:** 
 * **Uso de Feature Flags:** A menudo se combina con *feature toggles* (interruptores), lo que permite desplegar código en producción pero mantener la funcionalidad "apagada" para el usuario final. Esto permite revertir cambios instantáneamente si se descubre algún error crítico sin necesidad de deshacer el despliegue.
-
 * **Ventaja:** Reduce la complejidad de gestión de ramas (el "infierno de fusiones") y acelera el *Time-to-Market*, siendo ideal para equipos DevOps y aplicaciones web SaaS.
 
 **Ventajas:**
 * **Agilidad y Velocidad:** Integra cambios pequeños frecuentemente, reduciendo el tiempo entre desarrollo y despliegue.
-* **Reducción de Conflictos:** Evita problemas graves de fusión al integrar código constantemente.
+* **Reducción de Conflictos:** Al integrar cambios pequeños y frecuentes, se evitan las largas correcciones de errores y los problemas complejos que ocasiona la fusión de grandes ramas (*Merge Hell*).
 * **Retroalimentación Rápida:** Facilita la detección de errores casi al instante mediante pruebas automatizadas.
 
 **Desventajas:**
