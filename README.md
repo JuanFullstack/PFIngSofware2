@@ -227,6 +227,15 @@ Es el modelo tradicional publicado por Vincent Driessen. Se caracteriza por un u
 
 ## 3.2 GitHub Flow / Trunk-Based Development (Modelo de CI/CD)
 Es un modelo ágil donde los desarrolladores colaboran en una única rama central (el "tronco" o `main`), resistiendo la creación de ramas de larga duración.
+
+**¿Cómo funciona el TBD?**
+En el Trunk-Based Development (TBD), la dinámica de trabajo cambia radicalmente respecto a los modelos tradicionales:
+
+* **Centralización en el Tronco:** Los desarrolladores trabajan la mayor parte del tiempo directamente en la rama principal o en ramas de vida muy corta, evitando la creación de ramas de larga duración que se desvíen del código base.
+* **Enfoque en Entrega Continua (CD):** Las ramas son pequeñas y contienen solo una parte de la funcionalidad (*feature*) a implementar. Esto facilita enormemente el proceso de *merging*.
+* **Reducción de Riesgos:** Al integrar cambios pequeños y frecuentes, se evitan las largas correcciones de errores y los problemas complejos que ocasiona la fusión de grandes ramas (*Merge Hell*).
+* **Uso de Feature Flags:** A menudo se combina con *feature toggles* (interruptores), lo que permite desplegar código en producción pero mantener la funcionalidad "apagada" para el usuario final. Esto permite revertir cambios instantáneamente si se descubre algún error crítico sin necesidad de deshacer el despliegue.
+
 * **Enfoque:** Orientado a la **Entrega Continua (Continuous Delivery)**. Se priorizan los cambios pequeños e incrementales que se integran y despliegan frecuentemente.
 * **Estructura:** Simplificada. Solo existe una rama principal (`main`) que siempre debe ser desplegable. Las ramas de funcionalidad son de vida muy corta (*short-lived branches*) y se borran tras el merge.
 * **Ventaja:** Reduce la complejidad de gestión de ramas (el "infierno de fusiones") y acelera el *Time-to-Market*, siendo ideal para equipos DevOps y aplicaciones web SaaS.
