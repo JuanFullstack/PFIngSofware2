@@ -297,3 +297,20 @@ Durante la ejecución práctica de este proyecto, el equipo ha validado que la e
 GitFlow resultó ser la estrategia ideal para nuestro caso. Este modelo nos permitió trabajar en paralelo mediante ramas feature, garantizando que la rama `main` se mantuviera siempre como una línea base estable. Los incidentes documentados no se percibieron como fallos, sino como oportunidades para aplicar mecanismos de corrección y reforzar la importancia de la comunicación.
 
 En conclusión, la robustez de GitFlow fue la opción más acertada por su claridad de roles, su ciclo de vida definido mediante ramas de release y su capacidad para aislar el trabajo en progreso de la versión de producción.
+
+---
+
+## 4. Bibliografía y Referencias
+
+Para la elaboración de este informe técnico y la comparativa de modelos, se han consultado las siguientes fuentes:
+
+1.  **Chacon, S. & Straub, B.** *Pro Git*. Disponible en: [progit.org](https://progit.org)
+2.  **Git SCM.** *Documentación oficial de Git*. Disponible en: [git-scm.com/docs](https://git-scm.com/docs)
+3.  **Loeliger, J. & McCullough, M.** *Version Control with Git: Powerful tools and techniques for collaborative software development*.
+4.  **Atlassian.** *Comparing Workflows*. Disponible en: [atlassian.com/git/tutorials/comparing-workflows](https://www.atlassian.com/git/tutorials/comparing-workflows)
+5.  **KeepCoding Bootcamps.** *¿Qué es GitFlow y cómo funciona?* Disponible en: [keepcoding.io/blog/que-es-gitflow/](https://keepcoding.io/blog/que-es-gitflow/)
+6.  **CodigoNautas.** *Git Flow: Qué Es y Cómo Funciona*. Disponible en: [codigonautas.com/git-flow-que-es/](https://codigonautas.com/git-flow-que-es/)
+7.  **Zettler, K.** *Trunk-Based Development*. Disponible en: [atlassian.com/continuous-delivery/continuous-integration/trunk-based-development](https://www.atlassian.com/continuous-delivery/continuous-integration/trunk-based-development)
+8.  **Optimizely.** *Trunk-Based Development & Feature Flags*. Disponible en: [optimizely.com/optimization-glossary/trunk-based-development](https://www.optimizely.com/optimization-glossary/trunk-based-development)
+9.  **Álvarez, M.** (2020). *¿Por qué Trunk-Based Development?* Dev.to. Disponible en: [dev.to/marianocodes](https://dev.to/marianocodes/por-que-trunk-based-development-i5n)
+10. **The Pragmatic Engineer.** *Stacked Diffs*.
