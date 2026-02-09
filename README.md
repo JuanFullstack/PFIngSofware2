@@ -299,5 +299,14 @@ Más allá de la experiencia particular del grupo, la investigación técnica in
 - **Dependencia de la Automatización:** Estrategias como Trunk-Based Development (TBD) dependen totalmente de una infraestructura de Integración Continua (CI) sólida para detectar errores tempranos, ya que un fallo en la rama principal afecta a todo el equipo de inmediato.
 
 
+### 4.3  Consideraciones y soluciones aplicadas al proyecto
 
+Para reducir los problemas encontrados durante la colaboración y profesionalizar nuestra dinámica de trabajo, el equipo aplicó las siguientes soluciones técnicas:
 
+- **Uso de la herramienta Revert:** Ante la fusión accidental en la rama principal (main), se utilizó la función de Revert en el servidor para deshacer los cambios de forma inmediata. Esto permitió recuperar el estado estable de la rama de producción sin perder la trazabilidad del error, dejando constancia en el historial de por qué se retrocedió.
+
+- **Higiene y Reorganización de Archivos:** Se procedió a integrar los archivos creados externamente dentro del documento principal y a eliminar los duplicados. Esta acción aseguró que todos los integrantes trabajen sobre una línea base única, evitando la dispersión de la información.
+
+-**Refuerzo de la Comunicación:**Establecimos como regla que ninguna integración (Merge) se realiza sin una notificación previa al equipo. Esto permite que al menos dos personas validen que la rama de destino sea la correcta (develop), implementando una revisión por pares (Peer Review) manual.
+
+- **Estructura de Activos:** Se implementó una carpeta de imágenes (img/) para evitar el desorden de archivos binarios en la raíz del repositorio. Esta práctica mejora la mantenibilidad del proyecto a largo plazo y facilita la carga de recursos en el README.md.
