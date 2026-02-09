@@ -310,3 +310,15 @@ Para reducir los problemas encontrados durante la colaboración y profesionaliza
 -**Refuerzo de la Comunicación:**Establecimos como regla que ninguna integración (Merge) se realiza sin una notificación previa al equipo. Esto permite que al menos dos personas validen que la rama de destino sea la correcta (develop), implementando una revisión por pares (Peer Review) manual.
 
 - **Estructura de Activos:** Se implementó una carpeta de imágenes (img/) para evitar el desorden de archivos binarios en la raíz del repositorio. Esta práctica mejora la mantenibilidad del proyecto a largo plazo y facilita la carga de recursos en el README.md.
+
+### 4.4  Consideraciones Estratégicas en general 
+
+Más allá de la experiencia particular, el equipo destaca las siguientes consideraciones que los profesionales de Ingeniería de Software deben tener en cuenta al gestionar configuraciones:
+
+- **Disciplina y Rigor Metodológico:** El éxito de cualquier estrategia de ramificación depende de que el equipo siga estrictamente las reglas de nombrado y flujo. La falta de coordinación es la causa principal de fallas en sistemas complejos, por lo que la cultura del equipo es tan importante como la herramienta.
+
+- **Curva de Aprendizaje:** Metodologías robustas como GitFlow pueden resultar difíciles de asimilar inicialmente para nuevos miembros. Las organizaciones deben invertir tiempo en capacitación para evitar errores operativos que afecten la productividad inicial.
+
+- **Optimización mediante Stacked Diffs:** Para mitigar la pesadez de las revisiones de código extensas, en entornos de alta velocidad se recomienda el uso de Stacked Diffs. Esta técnica permite desarmar grandes cambios en unidades pequeñas, atómicas y dependientes entre sí, facilitando una retroalimentación más rápida y un flujo de trabajo ágil.
+
+- **Evaluación del Modelo según el Contexto:** No existe un modelo único para todos los proyectos. Mientras que GitFlow es excelente para productos con lanzamientos programados, modelos más livianos como GitHub Flow son preferibles para entornos de despliegue continuo (SaaS) donde la velocidad de entrega es la prioridad.
