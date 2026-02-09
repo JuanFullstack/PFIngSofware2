@@ -286,8 +286,17 @@ Durante el desarrollo de este informe, el equipo experimentó de primera mano lo
 - **Coordinación de Tareas y Alcances:** El intento de adelantar secciones no planificadas (como las referencias) sin previo aviso demostró que la iniciativa individual, sin comunicación, puede desajustar el cronograma y la sincronización del repositorio.
 
 
+### 4.2 Desafíos Técnicos y Operativos
 
+Más allá de la experiencia particular del grupo, la investigación técnica indica que el equipo debe gestionar los siguientes puntos críticos en cualquier entorno profesional:
 
+- **Gestión de Conflictos (Merge Conflicts):** Los conflictos ocurren cuando dos o más desarrolladores modifican las mismas líneas de código. GitFlow, al utilizar ramas de larga duración, aumenta el riesgo de integraciones tardías que pueden generar dificultades al fusionar cambios acumulados.
+
+- **Complejidad Administrativa:** GitFlow introduce un elevado número de ramas y fusiones que requieren una administración rigurosa para no perder la agilidad del desarrollo.
+
+- **Acumulación en la Rama Develop:** Si no se gestionan adecuadamente, los cambios acumulados en la rama de integración pueden volverse masivos y difíciles de manejar.
+
+- **Dependencia de la Automatización:** Estrategias como Trunk-Based Development (TBD) dependen totalmente de una infraestructura de Integración Continua (CI) sólida para detectar errores tempranos, ya que un fallo en la rama principal afecta a todo el equipo de inmediato.
 
 
 
