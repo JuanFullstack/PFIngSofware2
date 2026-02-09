@@ -267,3 +267,20 @@ Para el presente Trabajo Práctico de Ingeniería de Software II, hemos seleccio
 
 ---
 
+## 6. Conclusion
+
+Durante la ejecución práctica de este proyecto, el equipo ha validado que la elección de una estrategia de ramificación es un componente estratégico de la Gestión de la Configuración de Software (SCM) que impacta directamente en la calidad del producto final. El proceso no solo consistió en la redacción técnica, sino en la administración real de un repositorio colaborativo donde la teoría se puso a prueba ante la práctica.
+
+GitFlow resultó ser la estrategia ideal para nuestro caso, donde los integrantes poseíamos roles específicos y una fecha de entrega bien definida. Este modelo nos permitió trabajar en paralelo mediante ramas feature, garantizando que la rama main se mantuviera siempre como una línea base estable. Si bien este flujo puede volverse complejo, en nuestra experiencia fue la herramienta que nos brindó la estructura necesaria para organizar el contenido y proteger la integridad del informe.
+
+Los incidentes documentados en la sección de Desafíos y Consideraciones —como las fusiones accidentales o la reorganización de la línea base— no se percibieron como fallos del modelo, sino como oportunidades para aplicar mecanismos de correcion (como la herramienta revert) y reforzar la importancia de la higiene del repositorio y la comunicación del equipo.
+
+Por otro lado, el análisis comparativo con Trunk-Based Development (TBD) nos permitió comprender la tendencia actual hacia la Entrega Continua (CD), ideal para entornos que exigen rapidez. Como vimos en el análisis, este modelo se potencia con herramientas de organización como los Stacked Diffs, que agilizan las revisiones de código. Sin embargo, para los fines de este trabajo práctico, reafirmamos que la robustez de GitFlow fue la opción más acertada por las siguientes razones:
+
+- **Claridad de Roles:** Facilitó un entorno con permisos diferenciados y procesos de revisión claros entre los integrantes, permitiendo que la supervisión administrativa actuara como un filtro de calidad indispensable.
+
+- **Ciclo de Vida Definido:** El modelo de ramas de release se adaptó perfectamente a una entrega académica con fecha fija y versiones preestablecidas, permitiendo una fase de estabilización final.
+
+- **Robustez Operativa:** La rama develop funcionó como el "colchón" de seguridad necesario, aislando el trabajo en progreso de la versión de producción y permitiendo corregir desviaciones del flujo sin afectar la integridad del proyecto.
+
+Por ultimo, es importante mencionar que, independientemente de la estrategia seleccionada, la comunicación constante y la revisión de pares (Peer Review) son las piezas clave para garantizar que el desarrollo sea eficaz, prolijo y de alta calidad.
