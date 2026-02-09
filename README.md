@@ -2,10 +2,10 @@
 # Estrategias de Ramificación - Modelo GitFlow
 
 ### **Integrantes del Grupo:**
-* **Cano Arce**, Valentina
-* **Cano**, Juan
-* **Gonzalez**, Santiago
-* **Lobo**, Sergio
+* **Cano Arce**, María Valentina
+* **Cano**, Juan Francisco
+* **González**, Santiago
+* **Lobo**, Sergio Lobo
 
 ---
 
