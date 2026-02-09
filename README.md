@@ -314,3 +314,5 @@ Para la elaboración de este informe técnico y la comparativa de modelos, se ha
 8.  **Optimizely.** *Trunk-Based Development & Feature Flags*. Disponible en: [optimizely.com/optimization-glossary/trunk-based-development](https://www.optimizely.com/optimization-glossary/trunk-based-development)
 9.  **Álvarez, M.** (2020). *¿Por qué Trunk-Based Development?* Dev.to. Disponible en: [dev.to/marianocodes](https://dev.to/marianocodes/por-que-trunk-based-development-i5n)
 10. **The Pragmatic Engineer.** *Stacked Diffs*.
+11. **MoldStud.** *Handling Merge Conflicts Like a Pro*. Disponible en: [moldstud.com](https://moldstud.com/articles/p-handling-merge-conflicts-like-a-pro-a-gitflow-developer-guide)
+12. **Galarza, P.** *Comparativa de estrategias de ramas en Git*. Disponible en: [paulogalarza.com](https://paulogalarza.com/comparativa-de-estrategias-de-ramas-en-git/)
