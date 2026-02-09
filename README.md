@@ -267,3 +267,28 @@ Para el presente Trabajo Práctico de Ingeniería de Software II, hemos seleccio
 
 ---
 
+
+
+## 4. Desafios y consideraciones
+
+La adopción de una estrategia de ramificación no está exenta de obstáculos técnicos y humanos. En la práctica, la teoría de la Gestión de la Configuración de Software (SCM) se enfrenta a la realidad del trabajo en equipo, donde la coordinación es tan vital como el código mismo.
+
+### 4.1 Lecciones aprendidas
+
+Durante el desarrollo de este informe, el equipo experimentó de primera mano los desafíos de implementar GitFlow. Estas situaciones sirvieron como casos de estudio para fortalecer nuestro aprendizaje:
+
+- **Desviaciones del Flujo de Trabajo:** Se identificó una tendencia a realizar integraciones directamente en la línea base de producción (main) en lugar de utilizar la rama de integración (develop). Esto puso en evidencia la necesidad de configurar reglas de protección de ramas para evitar contaminar la versión estable del producto.
+
+- **Supervisión y Revisión de Pares (Peer Review):** El proceso de aprobación de Pull Requests (PR) mostró que la revisión no debe ser una tarea automática. Se detectaron fusiones aceptadas sin una verificación exhaustiva de la rama de destino, lo que subraya que la responsabilidad del administrador es crítica para la integridad del sistema.
+
+- **Interpretación de la Línea Base:** Inicialmente, surgió la confusión de crear archivos externos en lugar de evolucionar el documento principal (README.md). Esta experiencia, sumada a la gestión de nuevos activos como carpetas de imágenes , permitió comprender que el control de versiones busca la evolución incremental de una fuente de verdad compartida.
+
+- **Coordinación de Tareas y Alcances:** El intento de adelantar secciones no planificadas (como las referencias) sin previo aviso demostró que la iniciativa individual, sin comunicación, puede desajustar el cronograma y la sincronización del repositorio.
+
+
+
+
+
+
+
+
