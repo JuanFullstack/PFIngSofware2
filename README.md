@@ -267,7 +267,7 @@ Para el presente Trabajo Práctico de Ingeniería de Software II, hemos seleccio
 
 ---
 
-## 6. Conclusion
+## 5. Conclusion
 
 Durante la ejecución práctica de este proyecto, el equipo ha validado que la elección de una estrategia de ramificación es un componente estratégico de la Gestión de la Configuración de Software (SCM) que impacta directamente en la calidad del producto final. El proceso no solo consistió en la redacción técnica, sino en la administración real de un repositorio colaborativo donde la teoría se puso a prueba ante la práctica.
 
