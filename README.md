@@ -266,21 +266,34 @@ Para el presente Trabajo Práctico de Ingeniería de Software II, hemos seleccio
 3.  **Seguridad:** La existencia de la rama `develop` actúa como un "colchón" de seguridad antes de tocar la rama `main`, protegiendo la entrega final de errores en desarrollo.
 
 ---
+## 4. Desafios y consideraciones
+
+La adopción de una estrategia de ramificación no está exenta de obstáculos técnicos y humanos. En la práctica, la teoría de la Gestión de la Configuración de Software (SCM) se enfrenta a la realidad del trabajo en equipo, donde la coordinación es tan vital como el código mismo.
+
+### 4.1 Lecciones aprendidas
+
+Durante el desarrollo de este informe, el equipo experimentó de primera mano los desafíos de implementar GitFlow. Estas situaciones sirvieron como casos de estudio para fortalecer nuestro aprendizaje:
+
+- **Desviaciones del Flujo de Trabajo:** Se identificó una tendencia a realizar integraciones directamente en la línea base de producción (main) en lugar de utilizar la rama de integración (develop).
+- **Supervisión y Revisión de Pares (Peer Review):** El proceso de aprobación de Pull Requests (PR) mostró que la revisión no debe ser una tarea automática.
+- **Interpretación de la Línea Base:** La gestión de activos como carpetas de imágenes permitió comprender que el control de versiones busca la evolución incremental de una fuente de verdad compartida.
+
+### 4.2 Desafíos Técnicos y Operativos
+
+- **Gestión de Conflictos (Merge Conflicts):** Los conflictos ocurren cuando dos o más desarrolladores modifican las mismas líneas de código.
+- **Complejidad Administrativa:** GitFlow introduce un elevado número de ramas que requieren una administración rigurosa.
+
+### 4.3 Consideraciones y soluciones aplicadas al proyecto
+
+- **Uso de la herramienta Revert:** Ante la fusión accidental en `main`, se utilizó `revert` para recuperar el estado estable sin perder la trazabilidad.
+- **Estructura de Activos:** Se implementó una carpeta de imágenes (`img/`) para mejorar la mantenibilidad a largo plazo.
+
+---
 
 ## 5. Conclusion
 
-Durante la ejecución práctica de este proyecto, el equipo ha validado que la elección de una estrategia de ramificación es un componente estratégico de la Gestión de la Configuración de Software (SCM) que impacta directamente en la calidad del producto final. El proceso no solo consistió en la redacción técnica, sino en la administración real de un repositorio colaborativo donde la teoría se puso a prueba ante la práctica.
+Durante la ejecución práctica de este proyecto, el equipo ha validado que la elección de una estrategia de ramificación es un componente estratégico de la Gestión de la Configuración de Software (SCM). 
 
-GitFlow resultó ser la estrategia ideal para nuestro caso, donde los integrantes poseíamos roles específicos y una fecha de entrega bien definida. Este modelo nos permitió trabajar en paralelo mediante ramas feature, garantizando que la rama main se mantuviera siempre como una línea base estable. Si bien este flujo puede volverse complejo, en nuestra experiencia fue la herramienta que nos brindó la estructura necesaria para organizar el contenido y proteger la integridad del informe.
+GitFlow resultó ser la estrategia ideal para nuestro caso. Este modelo nos permitió trabajar en paralelo mediante ramas feature, garantizando que la rama `main` se mantuviera siempre como una línea base estable. Los incidentes documentados no se percibieron como fallos, sino como oportunidades para aplicar mecanismos de corrección y reforzar la importancia de la comunicación.
 
-Los incidentes documentados en la sección de Desafíos y Consideraciones —como las fusiones accidentales o la reorganización de la línea base— no se percibieron como fallos del modelo, sino como oportunidades para aplicar mecanismos de correcion (como la herramienta revert) y reforzar la importancia de la higiene del repositorio y la comunicación del equipo.
-
-Por otro lado, el análisis comparativo con Trunk-Based Development (TBD) nos permitió comprender la tendencia actual hacia la Entrega Continua (CD), ideal para entornos que exigen rapidez. Como vimos en el análisis, este modelo se potencia con herramientas de organización como los Stacked Diffs, que agilizan las revisiones de código. Sin embargo, para los fines de este trabajo práctico, reafirmamos que la robustez de GitFlow fue la opción más acertada por las siguientes razones:
-
-- **Claridad de Roles:** Facilitó un entorno con permisos diferenciados y procesos de revisión claros entre los integrantes, permitiendo que la supervisión administrativa actuara como un filtro de calidad indispensable.
-
-- **Ciclo de Vida Definido:** El modelo de ramas de release se adaptó perfectamente a una entrega académica con fecha fija y versiones preestablecidas, permitiendo una fase de estabilización final.
-
-- **Robustez Operativa:** La rama develop funcionó como el "colchón" de seguridad necesario, aislando el trabajo en progreso de la versión de producción y permitiendo corregir desviaciones del flujo sin afectar la integridad del proyecto.
-
-Por ultimo, es importante mencionar que, independientemente de la estrategia seleccionada, la comunicación constante y la revisión de pares (Peer Review) son las piezas clave para garantizar que el desarrollo sea eficaz, prolijo y de alta calidad.
+En conclusión, la robustez de GitFlow fue la opción más acertada por su claridad de roles, su ciclo de vida definido mediante ramas de release y su capacidad para aislar el trabajo en progreso de la versión de producción.
