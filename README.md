@@ -300,7 +300,7 @@ En conclusión, la robustez de GitFlow fue la opción más acertada por su clari
 
 ---
 
-## 4. Bibliografía y Referencias
+## 6. Bibliografía y Referencias
 
 Para la elaboración de este informe técnico y la comparativa de modelos, se han consultado las siguientes fuentes:
 
