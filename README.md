@@ -118,7 +118,8 @@ git checkout -b feature/introduccion develop
 
 3. **Registrar avances mediante commits atómicos:** Se guardan los cambios de forma incremental con mensajes descriptivos.
 ```bash
-git add README.md git commit -m "Valentina: Redacción de la base teórica de SCM"
+git add README.md 
+git commit -m "Valentina: Redacción de la base teórica de SCM"
 ```
 
 4. **Publicar la rama para revisión:** Se sube la rama al servidor remoto para que esté disponible en GitHub.
@@ -155,16 +156,18 @@ git checkout -b release/v1.0 develop
 # 2. Integrar en producción (main) tras la revisión final
 git checkout main
 git merge release/v1.0
+git push origin main
 
 # 3. Importante: Integrar los ajustes de vuelta a develop 
 # para que la rama de desarrollo también esté actualizada
 git checkout develop
 git merge release/v1.0
+git push origin develop
 
 # 4. Etiquetado de versión oficial
 git checkout main
 git tag -a v1.0 -m "Entrega Final - Ingeniería de Software II"
-
+git push origin v1.0
 ```
 
 #### 2.3.4 Gestión de Emergencias (Hotfix Branch)
@@ -174,17 +177,26 @@ En caso de detectar un error crítico en la versión ya entregada (ej. un link r
 # 1. Crear hotfix directamente desde la rama de producción
 git checkout -b hotfix/error-caratula main
 
-# 2. (Se corrige el error en el archivo y se realiza el commit)
+# 2. Corrección y commit
 git add README.md
 git commit -m "Sergio: Corrección de error crítico en carátula"
 
-# 3. Finalizar hotfix: fusionar en main y en develop
+# 3. Finalizar hotfix: fusionar en main y subir cambios
 git checkout main
 git merge hotfix/error-caratula
+git push origin main
+
+# 4. Replicar el arreglo en develop y subir cambios
 git checkout develop
 git merge hotfix/error-caratula
+git push origin develop
 
-# 4. Eliminar rama de emergencia
+# 5. Etiquetado de versión final corregida
+git checkout main
+git tag -a v1.0.1 -m "Hotfix: Corrección crítica de carátula"
+git push origin v1.0.1
+
+# 6. Eliminar rama de emergencia
 git branch -d hotfix/error-caratula
  ```
 
