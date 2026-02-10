@@ -314,7 +314,7 @@ Más allá de la experiencia particular, el equipo destaca las siguientes consid
 
 ---
 
-## 5. Conclusion
+## 5. Conclusión
 
 Durante la ejecución práctica de este proyecto, el equipo ha validado que la elección de una estrategia de ramificación es un componente estratégico de la Gestión de la Configuración de Software (SCM). 
 
