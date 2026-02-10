@@ -2,10 +2,10 @@
 # Estrategias de Ramificación - Modelo GitFlow
 
 ### **Integrantes del Grupo:**
-* **Cano Arce**, Valentina
-* **Cano**, Juan
-* **Gonzalez**, Santiago
-* **Lobo**, Sergio
+* **Cano Arce**, María Valentina
+* **Cano**, Juan Francisco
+* **González**, Santiago
+* **Lobo**, Sergio Lobo
 
 ---
 
@@ -118,7 +118,8 @@ git checkout -b feature/introduccion develop
 
 3. **Registrar avances mediante commits atómicos:** Se guardan los cambios de forma incremental con mensajes descriptivos.
 ```bash
-git add README.md git commit -m "Valentina: Redacción de la base teórica de SCM"
+git add README.md 
+git commit -m "Valentina: Redacción de la base teórica de SCM"
 ```
 
 4. **Publicar la rama para revisión:** Se sube la rama al servidor remoto para que esté disponible en GitHub.
@@ -155,16 +156,18 @@ git checkout -b release/v1.0 develop
 # 2. Integrar en producción (main) tras la revisión final
 git checkout main
 git merge release/v1.0
+git push origin main
 
-# 3. Importante: Integrar los ajustes de vuelta a develop 
+# 3. Integrar los ajustes de vuelta a develop 
 # para que la rama de desarrollo también esté actualizada
 git checkout develop
 git merge release/v1.0
+git push origin develop
 
 # 4. Etiquetado de versión oficial
 git checkout main
 git tag -a v1.0 -m "Entrega Final - Ingeniería de Software II"
-
+git push origin v1.0
 ```
 
 #### 2.3.4 Gestión de Emergencias (Hotfix Branch)
@@ -174,17 +177,26 @@ En caso de detectar un error crítico en la versión ya entregada (ej. un link r
 # 1. Crear hotfix directamente desde la rama de producción
 git checkout -b hotfix/error-caratula main
 
-# 2. (Se corrige el error en el archivo y se realiza el commit)
+# 2. Corrección y commit
 git add README.md
 git commit -m "Sergio: Corrección de error crítico en carátula"
 
-# 3. Finalizar hotfix: fusionar en main y en develop
+# 3. Finalizar hotfix: fusionar en main y subir cambios
 git checkout main
 git merge hotfix/error-caratula
+git push origin main
+
+# 4. Replicar el arreglo en develop y subir cambios
 git checkout develop
 git merge hotfix/error-caratula
+git push origin develop
 
-# 4. Eliminar rama de emergencia
+# 5. Etiquetado de versión final corregida
+git checkout main
+git tag -a v1.0.1 -m "Hotfix: Corrección crítica de carátula"
+git push origin v1.0.1
+
+# 6. Eliminar rama de emergencia
 git branch -d hotfix/error-caratula
  ```
 
@@ -259,12 +271,6 @@ A continuación, presentamos una comparativa directa basada en los atributos de 
 | **Gestión de Errores** | Ramas específicas (`hotfix`) para no detener el desarrollo en `develop`. | Corrección directa sobre el tronco (`fix forward`) o reversión rápida. |
 | **Riesgo de Conflictos** | Alto en integraciones tardías ("Merge Hell"). | Bajo, debido a integraciones frecuentes y pequeñas. |
 
-## 3.4 Conclusión (Parcial)
-Para el presente Trabajo Práctico de Ingeniería de Software II, hemos seleccionado **GitFlow** por las siguientes razones:
-1.  **Simulación de Roles:** Permite asignar roles claros (Release Manager, Developers) y gestionar permisos diferenciados, algo educativo en un entorno académico.
-2.  **Versiones Definidas:** Al ser una entrega académica con una fecha fija, el modelo de "Release" de GitFlow se adapta mejor que el despliegue continuo de GitHub Flow.
-3.  **Seguridad:** La existencia de la rama `develop` actúa como un "colchón" de seguridad antes de tocar la rama `main`, protegiendo la entrega final de errores en desarrollo.
-
 ---
 ## 4. Desafios y consideraciones
 
@@ -274,23 +280,41 @@ La adopción de una estrategia de ramificación no está exenta de obstáculos t
 
 Durante el desarrollo de este informe, el equipo experimentó de primera mano los desafíos de implementar GitFlow. Estas situaciones sirvieron como casos de estudio para fortalecer nuestro aprendizaje:
 
-- **Desviaciones del Flujo de Trabajo:** Se identificó una tendencia a realizar integraciones directamente en la línea base de producción (main) en lugar de utilizar la rama de integración (develop).
-- **Supervisión y Revisión de Pares (Peer Review):** El proceso de aprobación de Pull Requests (PR) mostró que la revisión no debe ser una tarea automática.
-- **Interpretación de la Línea Base:** La gestión de activos como carpetas de imágenes permitió comprender que el control de versiones busca la evolución incremental de una fuente de verdad compartida.
+- **Desviaciones del Flujo de Trabajo:** Se identificó una tendencia a realizar integraciones directamente en la línea base de producción (main) en lugar de utilizar la rama de integración (develop). Esto puso en evidencia la necesidad de configurar reglas de protección de ramas para evitar contaminar la versión estable del producto.
+- **Supervisión y Revisión de Pares (Peer Review):** El proceso de aprobación de Pull Requests (PR) mostró que la revisión no debe ser una tarea automática. Se detectaron fusiones aceptadas sin una verificación exhaustiva de la rama de destino, lo que subraya que la responsabilidad del administrador es crítica para la integridad del sistema.
+- **Interpretación de la Línea Base:** Inicialmente, surgió la confusión de crear archivos externos en lugar de evolucionar el documento principal (README.md). Esta experiencia, sumada a la gestión de nuevos activos como carpetas de imágenes , permitió comprender que el control de versiones busca la evolución incremental de una fuente de verdad compartida.
+- **Coordinación de Tareas y Alcances:** El intento de adelantar secciones no planificadas (como las referencias) sin previo aviso demostró que la iniciativa individual, sin comunicación, puede desajustar el cronograma y la sincronización del repositorio.
 
 ### 4.2 Desafíos Técnicos y Operativos
 
-- **Gestión de Conflictos (Merge Conflicts):** Los conflictos ocurren cuando dos o más desarrolladores modifican las mismas líneas de código.
-- **Complejidad Administrativa:** GitFlow introduce un elevado número de ramas que requieren una administración rigurosa.
+Más allá de la experiencia particular del grupo, la investigación técnica indica que el equipo debe gestionar los siguientes puntos críticos en cualquier entorno profesional:
 
-### 4.3 Consideraciones y soluciones aplicadas al proyecto
+- **Gestión de Conflictos (Merge Conflicts):** Los conflictos ocurren cuando dos o más desarrolladores modifican las mismas líneas de código. GitFlow, al utilizar ramas de larga duración, aumenta el riesgo de integraciones tardías que pueden generar dificultades al fusionar cambios acumulados.
+- **Complejidad Administrativa:** GitFlow introduce un elevado número de ramas y fusiones que requieren una administración rigurosa para no perder la agilidad del desarrollo.
+- **Acumulación en la Rama Develop:** Si no se gestionan adecuadamente, los cambios acumulados en la rama de integración pueden volverse masivos y difíciles de manejar.
+- **Dependencia de la Automatización:** Estrategias como Trunk-Based Development (TBD) dependen totalmente de una infraestructura de Integración Continua (CI) sólida para detectar errores tempranos, ya que un fallo en la rama principal afecta a todo el equipo de inmediato.
 
-- **Uso de la herramienta Revert:** Ante la fusión accidental en `main`, se utilizó `revert` para recuperar el estado estable sin perder la trazabilidad.
-- **Estructura de Activos:** Se implementó una carpeta de imágenes (`img/`) para mejorar la mantenibilidad a largo plazo.
+### 4.3  Consideraciones y soluciones aplicadas al proyecto
+
+Para reducir los problemas encontrados durante la colaboración y profesionalizar nuestra dinámica de trabajo, el equipo aplicó las siguientes soluciones técnicas:
+
+- **Uso de la herramienta Revert:** Ante la fusión accidental en la rama principal (main), se utilizó la función de Revert en el servidor para deshacer los cambios de forma inmediata. Esto permitió recuperar el estado estable de la rama de producción sin perder la trazabilidad del error, dejando constancia en el historial de por qué se retrocedió.
+- **Higiene y Reorganización de Archivos:** Se procedió a integrar los archivos creados externamente dentro del documento principal y a eliminar los duplicados. Esta acción aseguró que todos los integrantes trabajen sobre una línea base única, evitando la dispersión de la información.
+-**Refuerzo de la Comunicación:**Establecimos como regla que ninguna integración (Merge) se realiza sin una notificación previa al equipo. Esto permite que al menos dos personas validen que la rama de destino sea la correcta (develop), implementando una revisión por pares (Peer Review) manual.
+- **Estructura de Activos:** Se implementó una carpeta de imágenes (img/) para evitar el desorden de archivos binarios en la raíz del repositorio. Esta práctica mejora la mantenibilidad del proyecto a largo plazo y facilita la carga de recursos en el README.md.
+
+### 4.4  Consideraciones Estratégicas en general 
+
+Más allá de la experiencia particular, el equipo destaca las siguientes consideraciones que los profesionales de Ingeniería de Software deben tener en cuenta al gestionar configuraciones:
+
+- **Disciplina y Rigor Metodológico:** El éxito de cualquier estrategia de ramificación depende de que el equipo siga estrictamente las reglas de nombrado y flujo. La falta de coordinación es la causa principal de fallas en sistemas complejos, por lo que la cultura del equipo es tan importante como la herramienta.
+- **Curva de Aprendizaje:** Metodologías robustas como GitFlow pueden resultar difíciles de asimilar inicialmente para nuevos miembros. Las organizaciones deben invertir tiempo en capacitación para evitar errores operativos que afecten la productividad inicial.
+- **Optimización mediante Stacked Diffs:** Para mitigar la pesadez de las revisiones de código extensas, en entornos de alta velocidad se recomienda el uso de Stacked Diffs. Esta técnica permite desarmar grandes cambios en unidades pequeñas, atómicas y dependientes entre sí, facilitando una retroalimentación más rápida y un flujo de trabajo ágil.
+- **Evaluación del Modelo según el Contexto:** No existe un modelo único para todos los proyectos. Mientras que GitFlow es excelente para productos con lanzamientos programados, modelos más livianos como GitHub Flow son preferibles para entornos de despliegue continuo (SaaS) donde la velocidad de entrega es la prioridad.
 
 ---
 
-## 5. Conclusion
+## 5. Conclusión
 
 Durante la ejecución práctica de este proyecto, el equipo ha validado que la elección de una estrategia de ramificación es un componente estratégico de la Gestión de la Configuración de Software (SCM). 
 
