@@ -158,7 +158,7 @@ git checkout main
 git merge release/v1.0
 git push origin main
 
-# 3. Importante: Integrar los ajustes de vuelta a develop 
+# 3. Integrar los ajustes de vuelta a develop 
 # para que la rama de desarrollo también esté actualizada
 git checkout develop
 git merge release/v1.0
@@ -270,12 +270,6 @@ A continuación, presentamos una comparativa directa basada en los atributos de 
 | **Frecuencia de Integración** | Media/Baja. Se integra al finalizar funcionalidades completas. | Alta. Múltiples integraciones al día (Commits pequeños). |
 | **Gestión de Errores** | Ramas específicas (`hotfix`) para no detener el desarrollo en `develop`. | Corrección directa sobre el tronco (`fix forward`) o reversión rápida. |
 | **Riesgo de Conflictos** | Alto en integraciones tardías ("Merge Hell"). | Bajo, debido a integraciones frecuentes y pequeñas. |
-
-## 3.4 Conclusión (Parcial)
-Para el presente Trabajo Práctico de Ingeniería de Software II, hemos seleccionado **GitFlow** por las siguientes razones:
-1.  **Simulación de Roles:** Permite asignar roles claros (Release Manager, Developers) y gestionar permisos diferenciados, algo educativo en un entorno académico.
-2.  **Versiones Definidas:** Al ser una entrega académica con una fecha fija, el modelo de "Release" de GitFlow se adapta mejor que el despliegue continuo de GitHub Flow.
-3.  **Seguridad:** La existencia de la rama `develop` actúa como un "colchón" de seguridad antes de tocar la rama `main`, protegiendo la entrega final de errores en desarrollo.
 
 ---
 ## 4. Desafios y consideraciones
